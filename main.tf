@@ -1,5 +1,17 @@
 # Terraform configuration
 
+terraform {
+  backend "remote" {
+    hostname      = "app.terraform.io"
+    organization  = "SAASGlobal"
+
+    workspaces {
+      name = "new-state-migration"
+    }
+  }
+}
+
+
 variable "name_length" {
   description = "The number of words in the pet name"
   default     = "3"
